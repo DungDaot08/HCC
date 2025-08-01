@@ -100,6 +100,34 @@ const  PrintTicket: React.FC<PrintTicketProps> = ({
         { src: 'qz-tray.js', id: 'qztray-script', 
           onload: () => {
             console.log('qz-tray.js loaded');
+            const qz = (window as any).qz;
+            (qz as any).security.setCertificatePromise(function (resolve: any, reject: any) {
+  resolve("-----BEGIN CERTIFICATE-----\n" +
+"MIIECzCCAvOgAwIBAgIGAZhlKQVuMA0GCSqGSIb3DQEBCwUAMIGiMQswCQYDVQQG\n" +
+"EwJVUzELMAkGA1UECAwCTlkxEjAQBgNVBAcMCUNhbmFzdG90YTEbMBkGA1UECgwS\n" +
+"UVogSW5kdXN0cmllcywgTExDMRswGQYDVQQLDBJRWiBJbmR1c3RyaWVzLCBMTEMx\n" +
+"HDAaBgkqhkiG9w0BCQEWDXN1cHBvcnRAcXouaW8xGjAYBgNVBAMMEVFaIFRyYXkg\n" +
+"RGVtbyBDZXJ0MB4XDTI1MDczMTEwMjQwM1oXDTQ1MDczMTEwMjQwM1owgaIxCzAJ\n" +
+"BgNVBAYTAlVTMQswCQYDVQQIDAJOWTESMBAGA1UEBwwJQ2FuYXN0b3RhMRswGQYD\n" +
+"VQQKDBJRWiBJbmR1c3RyaWVzLCBMTEMxGzAZBgNVBAsMElFaIEluZHVzdHJpZXMs\n" +
+"IExMQzEcMBoGCSqGSIb3DQEJARYNc3VwcG9ydEBxei5pbzEaMBgGA1UEAwwRUVog\n" +
+"VHJheSBEZW1vIENlcnQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDD\n" +
+"4whifmlNe2araKJhzYB8UrlU2F5FlbFHrcRNVHOL6Fwd2Lscsj8b53zJAC1g9/zH\n" +
+"rX2P9B0LamuOkPtVM65nku+GtyOsZcSzkpBRLC4lQ458ueddrsxs5eMYlS8bBQMm\n" +
+"ORbsXhkLRX+zanqVQuLypUeBI3kN0xP5rsJiSmNBxCu/ouOp4bSnnwIKpKY4bblN\n" +
+"QjXjb4jCPXCJa0DVkVIgkuZJ6uN1znmPXOO6SNcSZsXqAx+qPBZm2p1yIYV1oS3V\n" +
+"A2k75ssGgY0VywYTGOvMR4iLh+Ipg8m7VUYe+1E6HJEXwaQj4Zx3dvAJ/vV6ujdS\n" +
+"PbTQoiIpqrqRJZzaXxDxAgMBAAGjRTBDMBIGA1UdEwEB/wQIMAYBAf8CAQEwDgYD\n" +
+"VR0PAQH/BAQDAgEGMB0GA1UdDgQWBBTdZRtxXYO13ntCwGRzED8WOP3VMDANBgkq\n" +
+"hkiG9w0BAQsFAAOCAQEAki7X5yVvsDYraPGbocwyo7V1wjHU6MFz/UhG7z/VK2C+\n" +
+"cYwN74Kf6CKCpUGfA5ngxMOQtYv5K3tw95yG6AjKmZQ3yW6BWkzhXHA0UDABY7Jy\n" +
+"mr24dGh8lZXkWbvlHv78KXKCSI5UoIn24lCrFQQobGwLz+8cMXXNQjtIRp4Qc/lx\n" +
+"xaReWdvuEXROmtSDXdZAXD1vIgr0SeKuiN4xZv0le5GeykNJYYi7tCqzzW4/bvL6\n" +
+"RIOx5bP7LuTZKvl7rZhOtqnL5RYT1bLQZwaLgx1zodwr6Q+dSb1E4YfGx5CWwisI\n" +
+"8AmjEtFGoeOUD/d7/M1/DJUkz2yO5NopqYOy/RC5iQ==\n" +
+"-----END CERTIFICATE-----\n"
+);
+});
             setQzReady(true);
           }
          },
@@ -163,6 +191,11 @@ const  PrintTicket: React.FC<PrintTicketProps> = ({
 });
 
 (qz as any).security.setSignatureAlgorithm("SHA512");
+
+
+function stob64(str: string): string {
+  return btoa(str); // trong trình duyệt
+}
 
 
       setPrintStatus('🖨️ Đang kết nối QZ Tray...');
