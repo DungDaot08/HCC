@@ -68,7 +68,7 @@ var privateKey = "-----BEGIN PRIVATE KEY-----\n" +
 "Xv7gsJrSYf0PUe1+PNyDVDi7wBL6+nIkG55+nqNAT1HENwwndk0Epcg07Qwbw1qp\n" +
 "R6J7ixCtUOYde7f2XBSj9WRv7Dg9/GZ2S8zQp0eozTOr4umBJ7vW2BnPHRaWlHuC\n" +
 "vz+asH7StgndDFAZiRd5jEv/\n" +
-"-----END PRIVATE KEY-----\n" ;
+"-----END PRIVATE KEY-----";
 
 qz.security.setSignatureAlgorithm("SHA512"); // Since 2.1
 qz.security.setSignaturePromise(function(toSign) {
