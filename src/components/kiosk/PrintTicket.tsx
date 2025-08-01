@@ -195,7 +195,7 @@ function stob64(str: string): string {
 
       setPrintStatus('🖨️ Đang gửi lệnh in qua QZ Tray...');
       const ticketHTML = generateThermalTicketHTML(timeString, dateString);
-      const config = qz.configs.create('Microsoft Print to PDF', {
+      const config = qz.configs.create('POS-80C', {
         encoding: 'RAW',
         copies: 1,
         rasterize: true
